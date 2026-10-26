@@ -1,0 +1,121 @@
+:root {
+  --bg: #0f1220; --card: #1a1f36; --card2: #232a47; --text: #eef0ff; --muted: #9aa3c7;
+  --acc: #7c5cff; --acc2: #5b8cff; --good: #2ecc71; --bad: #ff5a6e; --r: 16px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+#app { max-width: 640px; margin: 0 auto; min-height: 100vh; }
+h1 { font-size: 26px; margin: 8px 0 12px; }
+h2 { font-size: 18px; margin: 24px 0 10px; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+small, .muted { color: var(--muted); }
+.main { padding: 16px 16px 90px; }
+
+/* кнопки */
+.btn { display: block; width: 100%; padding: 14px 18px; border: 0; border-radius: 14px; background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; font-weight: 700; margin-top: 14px; }
+.btn.sm { width: auto; display: inline-block; padding: 9px 16px; margin: 0; }
+.btn.ghost { background: var(--card2); }
+.btn.danger { background: var(--bad); }
+.btn:disabled { opacity: .4; cursor: default; }
+.link { background: none; border: 0; color: var(--acc2); padding: 8px; display: block; margin: 8px auto 0; }
+
+/* шапка и карточки */
+.hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.logo { font-weight: 800; font-size: 20px; }
+.chips { display: flex; gap: 8px; }
+.chip2 { background: var(--card); padding: 6px 12px; border-radius: 999px; font-weight: 700; }
+.card { background: var(--card); border-radius: var(--r); padding: 16px; margin-bottom: 12px; }
+.card label { display: block; margin-bottom: 14px; }
+.card select, .card input[type=range] { width: 100%; margin-top: 6px; }
+.card select { background: var(--card2); border: 0; border-radius: 10px; padding: 10px; }
+.rev { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.rev small { display: block; }
+
+/* путь */
+.path { display: flex; flex-direction: column; gap: 10px; }
+.unit { display: flex; align-items: center; gap: 14px; text-align: left; width: 100%; background: var(--card); border: 2px solid transparent; border-radius: var(--r); padding: 14px; }
+.unit:not(.locked):hover { border-color: var(--acc); }
+.unit.done { border-color: rgba(46, 204, 113, .5); }
+.unit.locked { opacity: .45; cursor: default; }
+.unit .ic { font-size: 30px; }
+.unit .tx { flex: 1; }
+.unit .tx b, .unit .tx small { display: block; }
+.unit .st { font-weight: 700; color: var(--muted); }
+
+/* нижнее меню */
+.nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 640px; display: flex; background: var(--card); padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid var(--card2); }
+.nav button { flex: 1; background: none; border: 0; padding: 10px 0; color: var(--muted); font-size: 13px; }
+.nav button span { display: block; font-size: 20px; }
+.nav button.on { color: #fff; }
+
+/* словарь */
+.row { display: flex; align-items: center; gap: 12px; background: var(--card); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; }
+.row .em { font-size: 24px; }
+.row .tx { flex: 1; }
+.row .tx b, .row .tx small { display: block; }
+.dots { color: var(--acc); letter-spacing: 2px; font-size: 12px; }
+
+/* экран урока */
+.stage { padding: 14px 16px 120px; }
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.x { background: none; border: 0; font-size: 22px; color: var(--muted); }
+.bar { flex: 1; height: 12px; background: var(--card2); border-radius: 999px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--good); border-radius: 999px; transition: width .3s; }
+.ex { text-align: center; }
+.ex.scroll { text-align: left; }
+.kind { color: var(--muted); margin: 6px 0 14px; }
+.big { font-size: 28px; font-weight: 800; margin: 10px 0 22px; }
+.sub { color: var(--muted); margin: 6px 0; }
+.speaker { background: var(--card2); border: 0; border-radius: 50%; width: 44px; height: 44px; font-size: 20px; vertical-align: middle; }
+.speaker.huge { width: 90px; height: 90px; font-size: 40px; background: linear-gradient(135deg, var(--acc), var(--acc2)); }
+.opts { display: grid; gap: 10px; }
+.opt { background: var(--card); border: 2px solid var(--card2); border-radius: 14px; padding: 14px; font-weight: 600; }
+.opt.right { border-color: var(--good); background: rgba(46, 204, 113, .15); }
+.opt.wrong { border-color: var(--bad); background: rgba(255, 90, 110, .15); }
+.slot { min-height: 56px; border-bottom: 2px solid var(--card2); display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 0; margin-bottom: 18px; justify-content: center; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 48px; }
+.chip { background: var(--card2); border: 2px solid var(--card2); border-radius: 12px; padding: 10px 14px; font-weight: 600; }
+.inp { width: 100%; margin-top: 14px; padding: 14px; background: var(--card); border: 2px solid var(--card2); border-radius: 14px; font-size: 18px; text-align: center; }
+.inp:focus { outline: none; border-color: var(--acc); }
+.mic { background: linear-gradient(135deg, #ff5a6e, #ff8a5a); border: 0; border-radius: 999px; padding: 16px 28px; font-weight: 700; margin: 16px 0 6px; }
+.mic:disabled { opacity: .5; }
+
+/* нижняя панель ответа */
+.fb { position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); background: var(--card); display: flex; align-items: center; gap: 14px; max-width: 640px; margin: 0 auto; }
+.fb[hidden] { display: none; }
+.fb .btn { margin: 0; width: auto; padding: 12px 26px; }
+.fb:has(> .btn:only-child) .btn { width: 100%; }
+.fb.good { background: #123d27; }
+.fb.bad { background: #471a24; }
+.fb .msg { flex: 1; }
+.fb .msg b, .fb .msg span { display: block; }
+.fb.good .msg b { color: var(--good); }
+.fb.bad .msg b { color: var(--bad); }
+
+/* слова, диалог, грамматика */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.wcard { background: var(--card); border: 2px solid var(--card2); border-radius: 14px; padding: 14px 8px; text-align: center; }
+.wcard span { display: block; font-size: 30px; }
+.wcard b, .wcard small { display: block; }
+.tools { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.sw { color: var(--muted); }
+.bub { max-width: 85%; background: var(--card); border-radius: 16px; padding: 10px 14px; margin-bottom: 10px; cursor: pointer; }
+.bub.r { margin-left: auto; background: var(--card2); }
+.bub small, .bub .en, .bub .ru { display: block; }
+.bub .en { font-weight: 700; }
+.bub .ru { color: var(--muted); font-size: 14px; }
+.hide-ru .ru { display: none; }
+.grammar p { margin: 12px 0; }
+.gbox { background: var(--card); border-left: 4px solid var(--acc); border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+.tip { background: rgba(124, 92, 255, .15); border-radius: 12px; padding: 12px 14px; }
+.gt { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.gt th, .gt td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--card2); }
+.gt th { color: var(--muted); font-weight: 600; font-size: 14px; }
+
+/* итог */
+.done { padding: 60px 20px; text-align: center; }
+.trophy { font-size: 72px; }
+.stats { display: flex; gap: 10px; margin: 22px 0 10px; }
+.stats div { flex: 1; background: var(--card); border-radius: 14px; padding: 14px 6px; }
+.stats b { display: block; font-size: 22px; }
